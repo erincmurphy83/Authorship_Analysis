@@ -1,0 +1,40 @@
+﻿using System;
+ using System.Collections.Generic;
+ using System.Linq;
+ using System.Text;
+ 
+ class SavingTheUniverse {
+     public string Process(string input) {
+         return "";
+     }
+ 
+     public string Process2(string[] engines, string[] queries) {
+         int[,] switches = new int[engines.Length, queries.Length+1];
+         for (int i = 0; i < engines.Length; i++) {
+             switches[i, 0] = 0;
+         }
+         for (int i = 0; i < queries.Length; i++) {
+             for (int e = 0; e < engines.Length; e++) {
+                 switches[e, i + 1] = switches[e, i];
+             }
+             for (int e = 0; e < engines.Length; e++) {
+                 for (int e2 = 0; e2 < engines.Length; e2++) {
+                     switches[e, i + 1] = Math.Min(switches[e2, i] + 1, switches[e, i + 1]) ;
+                 }
+             }
+             for (int e = 0; e < engines.Length; e++) {
+                 if (engines[e] == queries[i]) switches[e, i + 1] = 99999;
+             }
+         }
+         int best = 99999;
+         for (int e = 0; e < engines.Length; e++) {
+             best = Math.Min(best, switches[e, queries.Length]);
+         }
+         return best.ToString();
+     }
+ 
+ 
+     public string[] ProcessMulti(string input) {
+         return new string[] { };
+     }
+ }

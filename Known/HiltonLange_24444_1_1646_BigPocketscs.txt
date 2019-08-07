@@ -1,0 +1,76 @@
+using System;
+ using System.Collections.Generic;
+ using System.Text;
+ 
+     class BigPockets {
+         public string Process(string[] s, int[] T) {
+             int[] minX = new int[6005];
+             int[] maxX = new int[6005];
+             int[] minY = new int[6005];
+             int[] maxY = new int[6005];
+             for (int i = 0; i < 6005; i++) {
+                 minX[i] = 6005;
+                 maxX[i] = -1;
+                 minY[i] = 6005;
+                 maxY[i] = -1;
+             }
+ 
+             bool[,] isXLine = new bool[6005, 6005];
+             bool[,] isYLine = new bool[6005, 6005];
+ 
+             int x = 3001;
+             int y = 3001;
+             int k = 0;
+ 
+             int[] aDirX = new int[] { 0, 1, 0, -1 };
+             int[] aDirY = new int[] { 1, 0, -1,0 };
+ 
+             for (int i = 0; i < s.Length; i++) {
+                 for (int j = 0; j < T[i]; j++) {
+                     for (int a = 0; a < s[i].Length; a++) {
+                         if (s[i][a] == 'L') k = (k + 3) % 4;
+                         if (s[i][a] == 'R') k = (k + 1) % 4;
+                         if (s[i][a] == 'F') {
+                             if (k == 0) {
+                                 isYLine[x, y] = true;
+                                 minX[y] = Math.Min(minX[y], x);
+                                 maxX[y] = Math.Max(maxX[y], x);
+                                 y++;
+                             }
+                             if (k == 1) {
+                                 isXLine[x, y] = true;
+                                 minY[x] = Math.Min(minY[x], y);
+                                 maxY[x] = Math.Max(maxY[x], y);
+                                 x++;
+                             }
+                             if (k == 2) {
+                                 isYLine[x, y-1] = true;
+                                 minX[y-1] = Math.Min(minX[y-1], x);
+                                 maxX[y-1] = Math.Max(maxX[y-1], x);
+                                 y--;
+                             }
+                             if (k == 3) {
+                                 isXLine[x-1, y] = true;
+                                 minY[x - 1] = Math.Min(minY[x - 1], y);
+                                 maxY[x - 1] = Math.Max(maxY[x - 1], y);
+                                 x--;
+                             }
+                         }
+                     }
+                 }
+             }
+ 
+             //bool[,] bInt = new bool[6005, 6005];
+             int ret = 0;
+             for (int yp = 0; yp < 6005; yp++) {
+                 bool bin = false;
+                 for (int xp = 0; xp < 6005; xp++) {
+                     if (isYLine[xp, yp]) bin = !bin;
+                     //bInt[xp, yp] = bin;
+                     if (!bin && ((minX[yp]<xp && maxX[yp]>xp) || (minY[xp]<yp && maxY[xp]>yp))) ret++;
+                 }
+             }
+ 
+             return ret.ToString();
+         }
+     }

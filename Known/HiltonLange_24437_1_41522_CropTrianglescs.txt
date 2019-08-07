@@ -1,0 +1,62 @@
+using System;
+ using System.Collections.Generic;
+ using System.Text;
+ 
+ class CropTriangles {
+     public string Process(string input) {
+         string[] s = input.Split(' ');
+         int n = int.Parse(s[0]);
+         long A = int.Parse(s[1]);
+         long B = int.Parse(s[2]);
+         long C = int.Parse(s[3]);
+         long D = int.Parse(s[4]);
+         long x0 = int.Parse(s[5]);
+         long y0 = int.Parse(s[6]);
+         long M = int.Parse(s[7]);
+ 
+         //long[] x = new int[3];
+         //long[] y = new int[3];
+         long[,] xy = new long[3, 3];
+ 
+         long X = x0;
+         long Y = y0;
+ 
+         for (int i = 0; i < n; i++) {
+             //x[X % 3]++;
+             //y[Y % 3]++;
+             xy[X % 3, Y % 3]++;
+             X = (A * X + B) % M;
+             Y = (C * Y + D) % M;
+         }
+ 
+         long ret = 0;
+ 
+         for (int x = 0; x < 3; x++) {
+             for (int y = 0; y < 3; y++) {
+                 if (xy[x, y] >= 3) {
+                     ret += (xy[x, y] * (xy[x, y] - 1) * (xy[x, y] - 2)) / 6;
+                 }
+             }
+         }
+ 
+         for (int ca = 0; ca < 9; ca++) {
+             for (int cb = ca+1; cb < 9; cb++) {
+                 for (int cc = cb+1; cc < 9; cc++) {
+                     int x1 = ca / 3;
+                     int y1 = ca % 3;
+                     int x2 = cb / 3;
+                     int y2 = cb % 3;
+                     int x3 = cc / 3;
+                     int y3 = cc % 3;
+                     if ((x1 + x2 + x3) % 3 == 0 && (y1 + y2 + y3) % 3 == 0) {
+                         ret += xy[x1, y1] * xy[x2, y2] * xy[x3, y3];
+                     }
+                 }
+             }
+         }
+ 
+         return ret.ToString();
+ 
+ 
+     }
+ }

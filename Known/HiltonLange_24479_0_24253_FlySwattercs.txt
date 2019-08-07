@@ -1,0 +1,74 @@
+﻿using System;
+ using System.Collections.Generic;
+ using System.Linq;
+ using System.Text;
+ 
+ class FlySwatter {
+ 
+     public string Process(string input) {
+         double f = double.Parse(input.Split(' ')[0]);
+         double R = double.Parse(input.Split(' ')[1]);
+         double t = double.Parse(input.Split(' ')[2]);
+         double r = double.Parse(input.Split(' ')[3]);
+         double g = double.Parse(input.Split(' ')[4]);
+ 
+         double missarea = 0;
+         double S = 2 * r + g;
+ 
+         if (2 * f >= g) return "1.000000";
+ 
+         for (double x = r+f; x < R-t-f; x+=S) {
+             for (double y = r+f; y<=x; y+=S) {
+                 double x2 = x + g-2*f;
+                 double y2 = y + g-2*f;
+                 int mult = x > y ? 2 : 1;
+                 double thismiss = 0;
+                 if (x * x + y * y >= (R - t - f) * (R - t - f)) continue;
+                 if (x2 * x2 + y2 * y2 <= (R - t-f) * (R - t-f)) {
+                     thismiss = (g - 2 * f) * (g - 2 * f);
+                     missarea += thismiss*mult;
+                     continue;
+                 }
+                 if (x * x + y2 * y2 > (R - t-f) * (R - t-f)) {
+                     double ycut = Math.Sqrt((R - t - f) * (R - t - f) - x * x);
+                     double xcut = Math.Sqrt((R - t - f) * (R - t - f) - y * y);
+                     thismiss = (xcut - x) * (ycut - y) / 2;
+                     double a1 = Math.Atan(y / xcut);
+                     double a2 = Math.Atan(ycut / x);
+                     double r2 = x * x + ycut * ycut;
+                     thismiss += r2 * (a2 - a1 - Math.Sin(a2 - a1)) / 2 ;
+                     missarea += thismiss * mult;
+                     continue;
+                 }
+                 if (x2 * x2 + y * y <= (R - t - f) * (R - t - f)) {
+                     double ycut = Math.Sqrt((R - t - f) * (R - t - f) - x2 * x2);
+                     double xcut = Math.Sqrt((R - t - f) * (R - t - f) - y2 * y2);
+                     thismiss = (g - 2 * f) * (g - 2 * f);
+                     thismiss -= (x2 - xcut) * (y2 - ycut) / 2;
+                     double a1 = Math.Atan(ycut / x2);
+                     double a2 = Math.Atan(y2 / xcut);
+                     double r2 = xcut * xcut + y2 * y2;
+                     thismiss += r2 * (a2 - a1 - Math.Sin(a2 - a1)) / 2;
+                     missarea += thismiss * mult;
+                     continue;
+                 }
+                 if (true) {
+                     double xcut2 = Math.Sqrt((R - t - f) * (R - t - f) - y2 * y2);
+                     double xcut1 = Math.Sqrt((R - t - f) * (R - t - f) - y * y);
+                     thismiss = (xcut2 - x) * (g - 2 * f) ;
+                     thismiss += (xcut1 - xcut2) * (g - 2 * f) / 2 ;
+                     double a1 = Math.Atan(y / xcut1);
+                     double a2 = Math.Atan(y2 / xcut2);
+                     double r2 = xcut2 * xcut2 + y2 * y2;
+                     thismiss += r2 * (a2 - a1 - Math.Sin(a2 - a1)) / 2 ;
+                     missarea += thismiss * mult;
+                     continue;
+                 }
+             }
+         }
+ 
+         double chance = (R * R*Math.PI - missarea * 4) / (R * R*Math.PI);
+         return string.Format("{0:0.000000}", chance);
+ 
+     }
+ }

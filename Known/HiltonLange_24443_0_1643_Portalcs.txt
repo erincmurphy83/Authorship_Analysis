@@ -1,0 +1,157 @@
+using System;
+ using System.Collections.Generic;
+ using System.Text;
+ 
+     class Portal {
+         int[] aDirI = new int[] { 0, 1, 0, -1 };
+         int[] aDirJ = new int[] { 1, 0, -1,0 };
+         bool[,] maze;
+         int N;
+         int M;
+         public string Process(string[] map) {
+              N = map.Length;
+              M = map[0].Length;
+ 
+             int iStart = -1;
+             int jStart = -1;
+             int iCake = -1;
+             int jCake = -1;
+ 
+             maze = new bool[N, M];
+             for (int i = 0; i < N; i++) {
+                 for (int j = 0; j < M; j++) {
+                     maze[i, j] = map[i][j] == '#';
+                     if (map[i][j] == 'O') {
+                         iStart = i;
+                         jStart = j;
+                     }
+                     if (map[i][j] == 'X') {
+                         iCake = i;
+                         jCake = j;
+                     }
+                 }
+             }
+ 
+             int[, , , , , ] dis = new int[15, 15, 15, 15, 15, 15];
+             for (int i1 = 0; i1 < 15; i1++) {
+                 for (int i2 = 0; i2 < 15; i2++) {
+                     for (int i3 = 0; i3 < 15; i3++) {
+                         for (int i4 = 0; i4 < 15; i4++) {
+                             for (int i5 = 0; i5 < 15; i5++) {
+                                 for (int i6 = 0; i6 < 15; i6++) {
+                                     dis[i1, i2, i3, i4, i5, i6] = -1;
+                                 }
+                             }
+                         }
+                     }
+                 }
+             }
+             int reti = -1;
+             int retj = -1;
+             PortalLoc(iStart, jStart, 0, ref reti, ref retj);
+             int pi1 = reti;
+             int pj1 = retj;
+             PortalLoc(iStart, jStart, 1, ref reti, ref retj);
+             int pi2 = reti;
+             int pj2 = retj;
+             dis[iStart, jStart, pi1, pj1, pi2, pj2] = 0;
+ 
+             Queue<int> oQ = new Queue<int>();
+             oQ.Enqueue(iStart);
+             oQ.Enqueue(jStart);
+             oQ.Enqueue(pi1);
+             oQ.Enqueue(pj1);
+             oQ.Enqueue(pi2);
+             oQ.Enqueue(pj2);
+ 
+             while (oQ.Count > 0) {
+                 int i = oQ.Dequeue();
+                 int j = oQ.Dequeue();
+ 
+ 
+                 pi1 = oQ.Dequeue();
+                 pj1 = oQ.Dequeue();
+                 pi2 = oQ.Dequeue();
+                 pj2 = oQ.Dequeue();
+                 int cd = dis[i, j, pi1, pj1, pi2, pj2];
+ 
+                 if (i == iCake && j == jCake) return (cd / 2).ToString();
+ 
+                 if (cd % 2 == 0) {
+                     // Shoot portals
+                     for (int p1 = 0; p1 < 5; p1++) {
+                         for (int p2 = 0; p2 < 5; p2++) {
+                             int newpi1 = pi1;
+                             int newpj1 = pj1;
+                             int newpi2 = pi2;
+                             int newpj2 = pj2;
+                             if (p1 < 4) PortalLoc(i, j, p1, ref newpi1, ref newpj1);
+                             if (p2 < 4) PortalLoc(i, j, p2, ref newpi2, ref newpj2);
+                             if (dis[i, j, newpi1, newpj1, newpi2, newpj2] == -1) {
+                                 oQ.Enqueue(i);
+                                 oQ.Enqueue(j);
+                                 oQ.Enqueue(newpi1);
+                                 oQ.Enqueue(newpj1);
+                                 oQ.Enqueue(newpi2);
+                                 oQ.Enqueue(newpj2);
+                                 dis[i, j, newpi1, newpj1, newpi2, newpj2] = cd + 1;
+                             }
+                         }
+                     }
+                 } else {
+                     // Make a move
+                     if (i == pi1 && j == pj1) {
+                         if (dis[pi2, pj2, pi1, pj1, pi2, pj2] == -1) {
+                             oQ.Enqueue(pi2);
+                             oQ.Enqueue(pj2);
+                             oQ.Enqueue(pi1);
+                             oQ.Enqueue(pj1);
+                             oQ.Enqueue(pi2);
+                             oQ.Enqueue(pj2);
+                             dis[pi2, pj2, pi1, pj1, pi2, pj2] = cd + 1;
+                         }
+                     }
+ 
+                     if (i == pi2 && j == pj2) {
+                         if (dis[pi1, pj1, pi1, pj1, pi2, pj2] == -1) {
+                             oQ.Enqueue(pi1);
+                             oQ.Enqueue(pj1);
+                             oQ.Enqueue(pi1);
+                             oQ.Enqueue(pj1);
+                             oQ.Enqueue(pi2);
+                             oQ.Enqueue(pj2);
+                             dis[pi1, pj1, pi1, pj1, pi2, pj2] = cd + 1;
+                         }
+                     }
+ 
+                     for (int k = 0; k < 4; k++) {
+                         int i2 = i + aDirI[k];
+                         int j2 = j + aDirJ[k];
+                         if (i2 >= 0 && j2 >= 0 && i2 < N && j2 < M && !maze[i2, j2] && dis[i2,j2,pi1,pj1,pi2,pj2]==-1) {
+                             oQ.Enqueue(i2);
+                             oQ.Enqueue(j2);
+                             oQ.Enqueue(pi1);
+                             oQ.Enqueue(pj1);
+                             oQ.Enqueue(pi2);
+                             oQ.Enqueue(pj2);
+                             dis[i2, j2, pi1, pj1, pi2, pj2] = cd + 1;
+                         }
+                     }
+                 }
+             }
+ 
+             return "THE CAKE IS A LIE";
+ 
+ 
+             
+         }
+ 
+         private void PortalLoc(int i, int j, int k, ref int reti, ref int retj) {
+             while (i + aDirI[k] >= 0 && i + aDirI[k] < N && j + aDirJ[k] >= 0 && j + aDirJ[k] < M && !maze[i + aDirI[k], j + aDirJ[k]]) {
+                 i += aDirI[k];
+                 j += aDirJ[k];
+             }
+             reti = i;
+             retj = j;
+         }
+     }

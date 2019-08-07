@@ -1,0 +1,64 @@
+using System;
+ using System.Collections.Generic;
+ using System.Text;
+ 
+     class NumberSets {
+         public string Process(string input) {
+             string[] s = input.Split(' ');
+             long A = long.Parse(s[0]);
+             long B = long.Parse(s[1]);
+             long P = long.Parse(s[2]);
+ 
+             List<long> primes = new List<long>();
+ 
+             long N = B - A + 1;
+             if (P >= N) return N.ToString();
+ 
+             for (long i = P; i < N; i++) {
+                 bool prime = true;
+                 for (long j = 2; j * j <= i && prime; j++) {
+                     if (i % j == 0) prime = false;
+                 }
+                 if (prime) primes.Add(i);
+             }
+ 
+             long[] belongs = new long[N];
+             for (long i = 0; i < N; i++) {
+                 belongs[i] = i;
+             }
+ 
+             for (int j = 0; j < primes.Count; j++) {
+                 long p = primes[j];
+                 long offset = A % p;
+                 offset = p - offset;
+                 if (offset == p) offset = 0;
+                 long first = A + offset;
+                 long lowest = N;
+                 for (long i = first; i <= B; i += p) {
+                     long parent = belongs[i - A];
+                     while (belongs[parent]!=parent) parent=belongs[parent];
+                     lowest = Math.Min(lowest, parent);
+                 }
+                 for (long i = first; i <= B; i += p) {
+                     long parent = belongs[i - A];
+                     while (belongs[parent] != parent) parent = belongs[parent];
+                     belongs[parent] = lowest;
+                 }
+             }
+ 
+             bool[] b = new bool[N];
+             for (long i = A; i <= B; i++) {
+                 long j = i-A;
+                 while (belongs[j] != j) j = belongs[j];
+                 b[j] = true;
+             }
+ 
+             int ret = 0;
+ 
+             for (long i = A; i <= B; i++) {
+                 if (b[i - A]) ret++ ;
+             }
+ 
+             return ret.ToString() ;
+         }
+     }

@@ -1,0 +1,83 @@
+using System;
+ using System.Collections.Generic;
+ using System.Text;
+ 
+ class CheatingBoolean {
+     int M, V;
+     bool[] bInterior, bAnd, changable;
+     int[] val;
+ 
+     int[,] mem;
+     public string Process(int M, int V, bool[] bInterior, int[] val, bool[] bAnd, bool[] changable) {
+         this.M = M;
+         this.V = V;
+         this.bInterior = bInterior;
+         this.bAnd = bAnd;
+         this.changable = changable;
+         this.val = val;
+ 
+         for (int i = M / 2 - 1; i >= 0; i--) {
+             if (bAnd[i]) val[i] = (val[i * 2 + 2] == 1 && val[i * 2 + 1] == 1) ? 1 : 0;
+             if (!bAnd[i]) val[i] = (val[i * 2 + 2] == 1 || val[i * 2 + 1] == 1) ? 1 : 0;
+         }
+         mem = new int[M, 2];
+         for (int i = 0; i < M; i++) {
+             for (int j = 0; j < 2; j++) {
+                 mem[i,j] = -1;
+             }
+         }
+ 
+         int ret = maxWork(0, V);
+         if (ret < 999999) return ret.ToString();
+         return "IMPOSSIBLE";
+     }
+ 
+     private int maxWork(int node, int target) {
+         if (mem[node, target] >= 0) return mem[node, target];
+         if (val[node] == target) return 0;
+         if (!bInterior[node]) return 999999;
+         int best = 999999;
+         int num = 0;
+         if (bAnd[node] && target == 1) {
+             num = maxWork(node * 2+2, 1) + maxWork(node * 2 + 1, 1);
+             best = Math.Min(best, num);
+         }
+         if (bAnd[node] && target == 0) {
+             num = Math.Min(maxWork(node * 2+2, 0), maxWork(node * 2 + 1, 0));
+             best = Math.Min(best, num);
+         }
+ 
+         if (!bAnd[node] && target == 1) {
+             num = Math.Min(maxWork(node * 2+2, 1), maxWork(node * 2 + 1, 1));
+             best = Math.Min(best, num);
+         }
+         if (!bAnd[node] && target == 0) {
+             num = maxWork(node * 2 + 2, 0) + maxWork(node * 2 + 1, 0);
+             best = Math.Min(best, num);
+         }
+ 
+         if (changable[node]) {
+             if (!bAnd[node] && target == 1) {
+                 num = 1 + maxWork(node * 2 + 2, 1) + maxWork(node * 2 + 1, 1);
+                 best = Math.Min(best, num);
+             }
+             if (!bAnd[node] && target == 0) {
+                 num = 1 + Math.Min(maxWork(node * 2 + 2, 0), maxWork(node * 2 + 1, 0));
+                 best = Math.Min(best, num);
+             }
+ 
+             if (bAnd[node] && target == 1) {
+                 num = 1 + Math.Min(maxWork(node * 2 + 2, 1), maxWork(node * 2 + 1, 1));
+                 best = Math.Min(best, num);
+             }
+             if (bAnd[node] && target == 0) {
+                 num = 1 + maxWork(node * 2 + 2, 0) + maxWork(node * 2 + 1, 0);
+                 best = Math.Min(best, num);
+             }
+         }
+ 
+         mem[node, target] = best;
+         return best;
+ 
+     }
+ }

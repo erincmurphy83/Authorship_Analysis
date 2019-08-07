@@ -1,0 +1,28 @@
+using System;
+ using System.Collections.Generic;
+ using System.Text;
+ 
+     class EndlessKnight {
+         int MOD = 10007;
+         public string Process(int H, int W, string[] R) {
+             int[,] ways = new int[H, W];
+             bool[,] rock = new bool[H, W];
+             for (int i = 0; i < R.Length; i++) {
+                 int iR = int.Parse( R[i].Split(' ')[0])-1;
+                 int jR = int.Parse( R[i].Split(' ')[1])-1;
+                 rock[iR, jR] = true;
+             }
+ 
+             ways[0, 0] = 1;
+             for (int i = 0; i < H; i++) {
+                 for (int j = 0; j < W; j++) {
+                     if (i > 0 && j > 1) ways[i, j] += ways[i - 1, j - 2];
+                     if (i > 1 && j > 0) ways[i, j] += ways[i - 2, j - 1];
+                     ways[i, j] %= MOD;
+                     if (rock[i, j]) ways[i, j] = 0;
+                 }
+             }
+ 
+             return ways[H - 1, W - 1].ToString();
+         }
+     }

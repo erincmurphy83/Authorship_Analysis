@@ -1,0 +1,53 @@
+using System;
+ using System.Collections.Generic;
+ using System.Text;
+ 
+     class PermRLE {
+         public string Process(int k, string s) {
+             int[] a = new int[k];
+             for (int i = 0; i < k; i++) {
+                 a[i] = i;
+             }
+ 
+             int ret = s.Length;
+             do {
+                 char clast = '_';
+                 int len = 0;
+                 for (int i = 0; i < s.Length; i++) {
+                     char c = s[k*(i / k) + a[i % k]];
+                     if (c != clast) {
+                         len++;
+                         clast = c;
+                     }
+                 }
+                 ret = Math.Min(ret, len);
+             } while (bNextPermutation(a));
+             return ret.ToString();
+         }
+ 
+         private bool bNextPermutation(int[] a) {
+             // Find first reversal, return false if there is none
+             int i = a.Length - 2;
+             if (i < 0) return false;
+             while (a[i] >= a[i + 1]) {
+                 i -= 1;
+                 if (i == -1) {
+                     System.Array.Sort(a);
+                     return false;
+                 }
+             }
+ 
+             // Find first element greater than reversal
+             int j = a.Length - 1;
+             while (a[j] <= a[i]) { j -= 1; }
+ 
+             // Swap
+             int aTemp = a[j];
+             a[j] = a[i];
+             a[i] = aTemp;
+ 
+             // Reverse remainder
+             System.Array.Reverse(a, i + 1, a.Length - i - 1);
+             return true;
+         }
+     }
