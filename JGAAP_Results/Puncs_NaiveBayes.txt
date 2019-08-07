@@ -1,0 +1,285 @@
+LeeMobile_1026487_1_62312_bpy.txt C:\Users\rainb\Stylometry\Unknown\LeeMobile_1026487_1_62312_bpy.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Naive Bayes 
+1. bmerry 1.0
+2. dzhulgakov 2.768857584404E-32
+3. HiltonLange 8.52939677583674E-65
+4. krijgertje 5.2272925990676645E-67
+5. radeye 6.850033487604781E-68
+6. LinesPrower 7.964946372656196E-86
+7. wata 8.231292008927736E-87
+8. pmnox 6.502486982827199E-152
+9. pashka 9.781062369064358E-212
+10. Eryx 0.0
+
+
+Tilps_1026487_1_62259_Q2cs.txt C:\Users\rainb\Stylometry\Unknown\Tilps_1026487_1_62259_Q2cs.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Naive Bayes 
+1. bmerry 0.8316157973317447
+2. pmnox 0.1683726054765732
+3. radeye 5.327457121548009E-6
+4. dzhulgakov 5.192373211392952E-6
+5. LinesPrower 1.0773511960889472E-6
+6. krijgertje 1.0153037706395147E-11
+7. pashka 1.0178338472373968E-74
+8. wata 1.734690098399522E-77
+9. HiltonLange 6.990029455922953E-145
+10. Eryx 5.105953755262255E-229
+
+
+crazyFrog_1026487_1_62838_bcpp.txt C:\Users\rainb\Stylometry\Unknown\crazyFrog_1026487_1_62838_bcpp.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Naive Bayes 
+1. dzhulgakov 0.9913657631701771
+2. pmnox 0.008566258901337167
+3. LinesPrower 6.740393398469649E-5
+4. bmerry 5.714017025948786E-7
+5. krijgertje 2.5927983145308004E-9
+6. radeye 1.3295324981009514E-85
+7. HiltonLange 8.113498057629979E-100
+8. wata 9.040189841280474E-170
+9. Eryx 7.241613413234147E-196
+10. pashka 1.8122490705733584E-231
+
+
+flyfox141_1026487_1_62886_2cpp.txt C:\Users\rainb\Stylometry\Unknown\flyfox141_1026487_1_62886_2cpp.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Naive Bayes 
+1. radeye 0.9999997921325686
+2. bmerry 1.5198919905007204E-7
+3. HiltonLange 5.587796832629815E-8
+4. krijgertje 1.7072966805480453E-13
+5. LinesPrower 9.250045951637502E-14
+6. wata 6.438514978122312E-16
+7. pmnox 1.5759533673519918E-24
+8. dzhulgakov 8.194955650303492E-40
+9. pashka 3.610711123730073E-149
+10. Eryx 0.0
+
+
+tolk_1026487_1_62915_Magickajava.txt C:\Users\rainb\Stylometry\Unknown\tolk_1026487_1_62915_Magickajava.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Naive Bayes 
+1. HiltonLange 0.9998218716755894
+2. pashka 1.7812799175419153E-4
+3. wata 3.326142984778098E-10
+4. radeye 4.200874606528333E-14
+5. pmnox 6.393077085091235E-22
+6. LinesPrower 2.206990404857866E-23
+7. bmerry 1.198675408896755E-23
+8. dzhulgakov 2.1922382777700125E-32
+9. krijgertje 2.411951204691421E-34
+10. Eryx 0.0
+
+
+unknown1.txt C:\Users\rainb\Stylometry\Unknown\unknown1.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Naive Bayes 
+1. bmerry 0.9162925218063042
+2. pmnox 0.08370745281975403
+3. dzhulgakov 2.537388096898674E-8
+4. krijgertje 6.090556483604856E-14
+5. LinesPrower 5.760391156375632E-19
+6. radeye 7.960016650717544E-154
+7. HiltonLange 1.314804342920743E-157
+8. Eryx 5.388792813912672E-211
+9. wata 1.5529582374478103E-222
+10. pashka 1.0376641546883927E-233
+
+
+unknown10.txt C:\Users\rainb\Stylometry\Unknown\unknown10.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Naive Bayes 
+1. wata 0.9206994418061474
+2. HiltonLange 0.0793005381352901
+3. radeye 1.597107503402019E-8
+4. pashka 4.0874875136550135E-9
+5. bmerry 4.499972596105412E-17
+6. LinesPrower 5.003623890138293E-22
+7. pmnox 1.2279131487251656E-22
+8. dzhulgakov 1.759409621573812E-33
+9. krijgertje 1.2835313855691921E-90
+10. Eryx 2.9478430482187794E-178
+
+
+unknown2.txt C:\Users\rainb\Stylometry\Unknown\unknown2.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Naive Bayes 
+1. dzhulgakov 0.9999401778415123
+2. pmnox 5.9820051699098676E-5
+3. krijgertje 8.582990418488901E-10
+4. LinesPrower 7.797044144580882E-10
+5. bmerry 4.687851274853267E-10
+6. Eryx 6.474337028457724E-113
+7. radeye 3.0087227421906618E-161
+8. HiltonLange 4.0830009839486997E-166
+9. wata 4.065392248194703E-168
+10. pashka 2.47014593435842E-243
+
+
+unknown3.txt C:\Users\rainb\Stylometry\Unknown\unknown3.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Naive Bayes 
+1. Eryx 0.9999936686406088
+2. krijgertje 6.331359391200478E-6
+3. bmerry 1.160055622347452E-19
+4. dzhulgakov 4.839901432062987E-79
+5. pmnox 6.29843590351273E-81
+6. LinesPrower 1.2881198952433513E-90
+7. radeye 5.0750204064860786E-172
+8. HiltonLange 3.5801172925122925E-236
+9. wata 5.180903407886318E-241
+10. pashka 2.367153774407605E-243
+
+
+unknown4.txt C:\Users\rainb\Stylometry\Unknown\unknown4.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Naive Bayes 
+1. pashka 0.9999859157631936
+2. wata 9.901430331371907E-6
+3. radeye 2.3767737318896653E-6
+4. HiltonLange 1.8060326206035174E-6
+5. bmerry 1.2239262185523952E-13
+6. LinesPrower 9.952709303462599E-17
+7. pmnox 2.5909270812261237E-19
+8. krijgertje 4.7977312630569303E-26
+9. dzhulgakov 2.4792170519293173E-28
+10. Eryx 1.677381506564924E-202
+
+
+unknown5.txt C:\Users\rainb\Stylometry\Unknown\unknown5.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Naive Bayes 
+1. krijgertje 0.9870986219966472
+2. radeye 0.012901378003352844
+3. HiltonLange 5.315789604332001E-23
+4. LinesPrower 3.4389220958833163E-62
+5. bmerry 1.2193589615603086E-64
+6. dzhulgakov 7.613114247215078E-69
+7. pmnox 5.817780071624768E-74
+8. wata 1.0618170080954763E-90
+9. Eryx 1.2903718718590468E-208
+10. pashka 0.0
+
+
+unknown6.txt C:\Users\rainb\Stylometry\Unknown\unknown6.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Naive Bayes 
+1. LinesPrower 0.9972301062586592
+2. dzhulgakov 0.0027698811712879748
+3. bmerry 7.065552848036179E-9
+4. pmnox 5.5044954095190406E-9
+5. krijgertje 4.746147592003776E-15
+6. HiltonLange 1.636205886582911E-98
+7. radeye 2.800778997505759E-160
+8. Eryx 9.33104223672315E-193
+9. wata 8.117360241197797E-228
+10. pashka 1.4394273718849077E-240
+
+
+unknown7.txt C:\Users\rainb\Stylometry\Unknown\unknown7.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Naive Bayes 
+1. pashka 0.9985278657318505
+2. HiltonLange 0.0014303133364872592
+3. radeye 4.179303667623809E-5
+4. wata 2.7894985970645307E-8
+5. bmerry 3.75197615620921E-17
+6. LinesPrower 2.169683264616733E-25
+7. pmnox 1.8774673149570253E-25
+8. krijgertje 4.863671861295027E-26
+9. dzhulgakov 2.0065784960275587E-37
+10. Eryx 3.562284185067844E-159
+
+
+unknown8.txt C:\Users\rainb\Stylometry\Unknown\unknown8.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Naive Bayes 
+1. dzhulgakov 0.9844017816561708
+2. pmnox 0.01523619312276161
+3. LinesPrower 3.2007630079084674E-4
+4. bmerry 3.8608089488564915E-5
+5. krijgertje 3.3408307882310483E-6
+6. radeye 2.1124636311798587E-96
+7. wata 1.3427297188557278E-171
+8. HiltonLange 1.2905750401823655E-173
+9. Eryx 6.449597099706562E-184
+10. pashka 3.934929592767526E-253
+
+
+unknown9.txt C:\Users\rainb\Stylometry\Unknown\unknown9.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Naive Bayes 
+1. radeye 1.0
+2. HiltonLange 2.0671789699296762E-150
+3. wata 1.611524339378305E-156
+4. bmerry 1.1427799570557028E-160
+5. pmnox 5.8032246827797534E-170
+6. LinesPrower 2.8846584265598113E-170
+7. krijgertje 1.1314489784042396E-173
+8. dzhulgakov 1.9533671939102153E-174
+9. pashka 3.5608568399636186E-224
+10. Eryx 0.0
+
+

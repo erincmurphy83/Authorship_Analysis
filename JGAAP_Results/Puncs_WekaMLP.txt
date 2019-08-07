@@ -1,0 +1,285 @@
+LeeMobile_1026487_1_62312_bpy.txt C:\Users\rainb\Stylometry\Unknown\LeeMobile_1026487_1_62312_bpy.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Multilayer Perceptron 
+1. dzhulgakov 0.6882272789445232
+2. radeye 0.3115500857928833
+3. LinesPrower 6.504033388166852E-5
+4. krijgertje 2.471709644908831E-5
+5. pmnox 2.643335979872212E-6
+6. HiltonLange 1.8165635865076511E-7
+7. wata 1.5202536196236178E-7
+8. Eryx 1.2095874123313076E-7
+9. bmerry 4.3280960262671206E-8
+10. pashka 1.3782773791604694E-9
+
+
+Tilps_1026487_1_62259_Q2cs.txt C:\Users\rainb\Stylometry\Unknown\Tilps_1026487_1_62259_Q2cs.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Multilayer Perceptron 
+1. bmerry 0.9785159802420383
+2. pmnox 0.00924494745158009
+3. wata 0.006753085661166585
+4. dzhulgakov 0.002461894032633083
+5. pashka 4.1178255030964456E-4
+6. radeye 1.853343596800636E-4
+7. krijgertje 2.4193481899582213E-5
+8. Eryx 2.186393499759308E-5
+9. LinesPrower 1.2333143380907691E-6
+10. HiltonLange 4.7640537247938244E-7
+
+
+crazyFrog_1026487_1_62838_bcpp.txt C:\Users\rainb\Stylometry\Unknown\crazyFrog_1026487_1_62838_bcpp.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Multilayer Perceptron 
+1. LinesPrower 0.9698923262404213
+2. radeye 0.022332816317296306
+3. dzhulgakov 0.006889642490723736
+4. pmnox 3.3507112885665835E-4
+5. bmerry 1.5376826470332196E-4
+6. pashka 7.416209263966376E-6
+7. Eryx 7.748758028239725E-7
+8. HiltonLange 1.3288375927791208E-8
+9. krijgertje 3.813383535799115E-9
+10. wata 3.6405862141337284E-10
+
+
+flyfox141_1026487_1_62886_2cpp.txt C:\Users\rainb\Stylometry\Unknown\flyfox141_1026487_1_62886_2cpp.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Multilayer Perceptron 
+1. radeye 0.6232535969034911
+2. LinesPrower 0.37303063839859635
+3. HiltonLange 0.0033879440696418708
+4. bmerry 4.797993993748445E-5
+5. krijgertje 2.803839364658452E-6
+6. pashka 1.9524115145055243E-6
+7. dzhulgakov 7.674864905710195E-7
+8. Eryx 6.945614500882836E-7
+9. wata 3.2269049832484457E-8
+10. pmnox 1.7704786315037277E-9
+
+
+tolk_1026487_1_62915_Magickajava.txt C:\Users\rainb\Stylometry\Unknown\tolk_1026487_1_62915_Magickajava.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Multilayer Perceptron 
+1. radeye 0.961050853986214
+2. pashka 0.031598124425849805
+3. HiltonLange 0.00551336792042268
+4. wata 8.557565312010086E-4
+5. dzhulgakov 1.6159945738100922E-4
+6. LinesPrower 1.3955116822355913E-4
+7. Eryx 1.1412333347155436E-6
+8. bmerry 9.149778076741957E-7
+9. pmnox 2.210548774737204E-8
+10. krijgertje 2.470938554588261E-9
+
+
+unknown1.txt C:\Users\rainb\Stylometry\Unknown\unknown1.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Multilayer Perceptron 
+1. bmerry 0.9873549340156202
+2. pmnox 0.009486770300471877
+3. dzhulgakov 0.002549436220401867
+4. wata 1.434287567803952E-4
+5. Eryx 6.23499305799223E-6
+6. LinesPrower 2.9084091839856837E-6
+7. krijgertje 7.296419359043458E-7
+8. pashka 2.65686946235239E-7
+9. HiltonLange 1.2633955327789226E-7
+10. radeye 6.005444727224212E-8
+
+
+unknown10.txt C:\Users\rainb\Stylometry\Unknown\unknown10.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Multilayer Perceptron 
+1. wata 0.9514489964700504
+2. HiltonLange 0.04467758991866622
+3. pashka 0.002953248852050417
+4. Eryx 1.9094202337179193E-4
+5. krijgertje 2.2796542428706457E-5
+6. LinesPrower 1.9184309894535625E-5
+7. radeye 1.5576742773469382E-6
+8. dzhulgakov 9.576270322853618E-7
+9. bmerry 2.774002860383559E-7
+10. pmnox 2.5408190784379457E-7
+
+
+unknown2.txt C:\Users\rainb\Stylometry\Unknown\unknown2.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Multilayer Perceptron 
+1. dzhulgakov 0.9964067250125356
+2. LinesPrower 0.0014452280186950314
+3. pmnox 0.001404897761485361
+4. krijgertje 1.8456901631690907E-4
+5. radeye 8.633926280946134E-5
+6. Eryx 1.2457859610970768E-5
+7. HiltonLange 1.0089364727640027E-5
+8. bmerry 2.4305149404645305E-6
+9. wata 7.271922738957901E-8
+10. pashka 3.96192742212368E-11
+
+
+unknown3.txt C:\Users\rainb\Stylometry\Unknown\unknown3.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Multilayer Perceptron 
+1. Eryx 0.9849575564720228
+2. HiltonLange 0.006515759704200171
+3. LinesPrower 0.005639049262317321
+4. pmnox 0.0023991874359924653
+5. krijgertje 8.46502412700214E-5
+6. pashka 3.358865500433761E-5
+7. bmerry 2.673475336892707E-5
+8. wata 1.586783094760075E-7
+9. dzhulgakov 5.78927564152759E-8
+10. radeye 9.77804715759182E-14
+
+
+unknown4.txt C:\Users\rainb\Stylometry\Unknown\unknown4.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Multilayer Perceptron 
+1. pashka 0.7900449732552252
+2. radeye 0.20109321974073346
+3. LinesPrower 0.005558290797598097
+4. wata 0.001315800607538658
+5. bmerry 2.5090050181383135E-4
+6. HiltonLange 1.264839915337633E-4
+7. dzhulgakov 6.0891176512275194E-6
+8. pmnox 4.7684784285408655E-6
+9. Eryx 2.8814804226520267E-6
+10. krijgertje 7.933101028719362E-10
+
+
+unknown5.txt C:\Users\rainb\Stylometry\Unknown\unknown5.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Multilayer Perceptron 
+1. dzhulgakov 0.43074658005628674
+2. radeye 0.3345866205407081
+3. LinesPrower 0.23283014529946028
+4. bmerry 0.001386671883709055
+5. krijgertje 2.3893573364197266E-6
+6. HiltonLange 1.857930450340023E-6
+7. Eryx 3.817699779726422E-7
+8. pashka 3.1601058588031836E-7
+9. pmnox 1.975343589742442E-8
+10. wata 2.5515202088514343E-9
+
+
+unknown6.txt C:\Users\rainb\Stylometry\Unknown\unknown6.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Multilayer Perceptron 
+1. LinesPrower 0.9792744376622883
+2. dzhulgakov 0.01540430430322793
+3. pmnox 0.002988094143802635
+4. radeye 0.0016197685692888964
+5. bmerry 4.8607937695309784E-5
+6. Eryx 1.4922859340899667E-5
+7. pashka 7.408281086824533E-6
+8. HiltonLange 2.9693950853169057E-8
+9. krijgertje 2.4305859172775263E-8
+10. wata 5.777229354928002E-10
+
+
+unknown7.txt C:\Users\rainb\Stylometry\Unknown\unknown7.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Multilayer Perceptron 
+1. radeye 0.9479103756537126
+2. pashka 0.04542095955713652
+3. HiltonLange 0.004671958449056476
+4. LinesPrower 0.001080420887923233
+5. dzhulgakov 1.0773354477993418E-4
+6. wata 1.9813915210169323E-5
+7. bmerry 2.046205906942733E-6
+8. Eryx 4.2690958175698717E-7
+9. pmnox 1.2494420965822144E-7
+10. krijgertje 1.5851670041885168E-9
+
+
+unknown8.txt C:\Users\rainb\Stylometry\Unknown\unknown8.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Multilayer Perceptron 
+1. LinesPrower 0.4595347625599302
+2. pmnox 0.36791274232637333
+3. dzhulgakov 0.16714712963783696
+4. pashka 0.0017001331054835825
+5. bmerry 1.9817710726011543E-4
+6. Eryx 1.2779394575452473E-4
+7. radeye 6.77880886502133E-5
+8. krijgertje 5.003941026131489E-5
+9. wata 1.5245518148482384E-6
+10. HiltonLange 9.367912362343347E-9
+
+
+unknown9.txt C:\Users\rainb\Stylometry\Unknown\unknown9.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA Multilayer Perceptron 
+1. radeye 0.9939146008397666
+2. HiltonLange 0.004816534987320046
+3. LinesPrower 2.563327283423332E-4
+4. dzhulgakov 2.513723112197439E-4
+5. pashka 2.1610326696421063E-4
+6. bmerry 1.5269491417115038E-5
+7. wata 8.622164644219796E-7
+8. Eryx 5.1502569459875356E-8
+9. pmnox 5.148089010955582E-8
+10. krijgertje 2.636941310478697E-10
+
+

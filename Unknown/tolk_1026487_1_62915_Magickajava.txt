@@ -1,0 +1,125 @@
+/*
+ ID: 14vikra1
+ LANG: JAVA
+ TASK: QualB2011
+ */
+ import java.io.*;
+ import java.util.*;
+ import java.math.BigInteger;
+ 
+ public class Magicka {
+   public static void main (String [] args) throws IOException {
+     BufferedReader f = new BufferedReader(new FileReader("B-large-qual.in"));
+     int numberTest = Integer.parseInt(f.readLine());
+     for (int i = 1; i <= numberTest; i++) {
+     	String testCase = f.readLine();
+     	String[] testDescription = testCase.split(" ");
+     	ArrayList elements = new ArrayList<String>();
+     	int numberCombine = Integer.parseInt(testDescription[0]);
+     	String[] combinations = new String[numberCombine];
+     	for (int j = 1; j <= numberCombine; j++) {
+     		combinations[j-1] = testDescription[j];
+     		//System.out.println(testDescription[j]);
+     	}
+     	int numberDelete = Integer.parseInt(testDescription[numberCombine + 1]);
+     	String[] deletions = new String[numberDelete];
+     	for (int j = 1; j <= numberDelete; j++) {
+     		deletions[j-1] = testDescription[j + numberCombine + 1];
+     		//System.out.println(testDescription[j + numberCombine + 1]);
+     	}
+     	int numberElements = Integer.parseInt(testDescription[numberCombine + numberDelete + 2]);
+     	String elementList = testDescription[numberCombine + numberDelete + 3];
+     	//System.out.println(testDescription[numberCombine + numberDelete + 3]);
+     	for (int j = 0; j < numberElements; j++) {
+     		char currentElement = elementList.charAt(j);
+     		String currentEs = Character.toString(currentElement);
+     		if (elements.size() > 0) {
+     			int currentsize = elements.size();
+     			String combineTest = "";
+ 				String previousE = elements.get(currentsize - 1).toString();
+ 				combineTest = currentEs.concat(previousE);
+ 				//System.out.println(combineTest);
+     			char combResult;
+     			if ((combResult = isMemberOfCombine(combinations, combineTest, numberCombine)) != '0') {
+     				elements.add(combResult);
+     				elements.remove(currentsize - 1);
+     				//System.out.println(combResult);
+     			} else {
+ 					combineTest = reverser(combineTest);
+ 					//System.out.println(combineTest + "Reversed");
+ 					if ((combResult = isMemberOfCombine(combinations, combineTest, numberCombine)) != '0') {
+ 						elements.add(combResult);
+ 						//System.out.println(combResult);
+ 						elements.remove(currentsize - 1);
+ 					} else {
+ 						boolean deleted = false;
+ 						ArrayList delResult = isMemberOfDelete(deletions, currentEs, numberDelete);
+ 						if (delResult.size() != 0) {
+ 							for (int k = 0; k < delResult.size(); k++) {
+ 								char partner = delResult.get(k).toString().charAt(0);
+ 								//System.out.println(Character.toString(partner) + currentEs);
+ 								if (elements.contains(partner)) {
+ 									elements.clear();
+ 									deleted = true;
+ 								}
+ 							}
+ 						} if (!deleted) {
+ 							elements.add(currentElement);
+ 						}
+ 					}
+ 				}
+ 				
+     		} else {
+ 				elements.add(currentElement);
+ 			}
+     	}
+     	String answer = "[";
+     	if (elements.size() > 0) {
+     		if (elements.size() > 1) {
+ 				for (int j = 0; j < elements.size() - 1; j++) {
+ 					answer = answer.concat(elements.get(j).toString());
+ 					answer = answer.concat(", ");
+ 				}
+ 			}
+ 			answer = answer.concat(elements.get(elements.size() - 1).toString()).concat("]");
+ 		} else {
+ 			answer = answer.concat("]");
+ 		}
+     	System.out.println("Case #" + i + ": " + answer);
+     }
+     //out.close();                                  
+     System.exit(0);                               
+   }
+   public static char isMemberOfCombine(String[] test, String member, int size) {
+   	  for (int i = 0; i < size; i++) {
+   	  	  String testing = test[i].substring(0,2);
+   	  	  if (testing.equals(member)) {
+   	  	  	  return test[i].charAt(2);
+   	  	  }
+   	  }
+   	  return '0';
+   }
+   public static ArrayList isMemberOfDelete(String[] test, String member, int size) {
+   	  ArrayList possible = new ArrayList();
+   	  for (int i = 0; i < size; i++) {
+   	  	  String testing = test[i].substring(0,1);
+   	  	  if (testing.equals(member)) {
+   	  	  	  possible.add(test[i].charAt(1));
+   	  	  }
+   	  }
+   	  for (int i = 0; i < size; i++) {
+   	  	  String testing = test[i].substring(1);
+   	  	  if (testing.equals(member)) {
+   	  	  	  possible.add(test[i].charAt(0));
+   	  	  }
+   	  }
+   	  return possible;
+   }
+   public static String reverser(String current) {
+   	  String answer = "";
+   	  answer = answer.concat(current.substring(1));
+   	  answer = answer.concat(current.substring(0,1));
+   	  return answer;
+   }
+ }
+ 

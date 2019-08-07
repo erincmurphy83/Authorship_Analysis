@@ -1,0 +1,163 @@
+LeeMobile_1026487_1_62312_bpy.txt C:\Users\rainb\Stylometry\Unknown\LeeMobile_1026487_1_62312_bpy.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        K-Nearest Neighbor Driver with metric Cosine Distance 
+1. wata 3.21875
+2. radeye 2.75
+
+
+Tilps_1026487_1_62259_Q2cs.txt C:\Users\rainb\Stylometry\Unknown\Tilps_1026487_1_62259_Q2cs.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        K-Nearest Neighbor Driver with metric Cosine Distance 
+1. dzhulgakov 3.78125
+2. bmerry 2.1875
+
+
+crazyFrog_1026487_1_62838_bcpp.txt C:\Users\rainb\Stylometry\Unknown\crazyFrog_1026487_1_62838_bcpp.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        K-Nearest Neighbor Driver with metric Cosine Distance 
+1. LinesPrower 2.625
+2. bmerry 2.09375
+3. pmnox 1.25
+
+
+flyfox141_1026487_1_62886_2cpp.txt C:\Users\rainb\Stylometry\Unknown\flyfox141_1026487_1_62886_2cpp.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        K-Nearest Neighbor Driver with metric Cosine Distance 
+1. radeye 4.9375
+2. pashka 1.03125
+
+
+tolk_1026487_1_62915_Magickajava.txt C:\Users\rainb\Stylometry\Unknown\tolk_1026487_1_62915_Magickajava.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        K-Nearest Neighbor Driver with metric Cosine Distance 
+1. radeye 2.75
+2. HiltonLange 1.0625
+3. pashka 1.125
+4. wata 1.03125
+
+
+unknown1.txt C:\Users\rainb\Stylometry\Unknown\unknown1.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        K-Nearest Neighbor Driver with metric Cosine Distance 
+1. bmerry 4.9375
+2. pmnox 1.03125
+
+
+unknown10.txt C:\Users\rainb\Stylometry\Unknown\unknown10.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        K-Nearest Neighbor Driver with metric Cosine Distance 
+1. wata 4.9375
+2. pashka 1.03125
+
+
+unknown2.txt C:\Users\rainb\Stylometry\Unknown\unknown2.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        K-Nearest Neighbor Driver with metric Cosine Distance 
+1. dzhulgakov 5.96875
+
+
+unknown3.txt C:\Users\rainb\Stylometry\Unknown\unknown3.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        K-Nearest Neighbor Driver with metric Cosine Distance 
+1. Eryx 5.96875
+
+
+unknown4.txt C:\Users\rainb\Stylometry\Unknown\unknown4.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        K-Nearest Neighbor Driver with metric Cosine Distance 
+1. pashka 3.40625
+2. wata 2.5625
+
+
+unknown5.txt C:\Users\rainb\Stylometry\Unknown\unknown5.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        K-Nearest Neighbor Driver with metric Cosine Distance 
+1. LinesPrower 5.96875
+
+
+unknown6.txt C:\Users\rainb\Stylometry\Unknown\unknown6.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        K-Nearest Neighbor Driver with metric Cosine Distance 
+1. LinesPrower 5.96875
+
+
+unknown7.txt C:\Users\rainb\Stylometry\Unknown\unknown7.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        K-Nearest Neighbor Driver with metric Cosine Distance 
+1. radeye 3.78125
+2. pashka 2.1875
+
+
+unknown8.txt C:\Users\rainb\Stylometry\Unknown\unknown8.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        K-Nearest Neighbor Driver with metric Cosine Distance 
+1. pmnox 4.84375
+2. LinesPrower 1.125
+
+
+unknown9.txt C:\Users\rainb\Stylometry\Unknown\unknown9.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        K-Nearest Neighbor Driver with metric Cosine Distance 
+1. radeye 5.96875
+
+

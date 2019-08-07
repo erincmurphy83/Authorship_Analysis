@@ -1,0 +1,285 @@
+LeeMobile_1026487_1_62312_bpy.txt C:\Users\rainb\Stylometry\Unknown\LeeMobile_1026487_1_62312_bpy.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA J48 Decision Tree 
+1. bmerry 1.0
+2. Eryx 0.0
+2. LinesPrower 0.0
+2. dzhulgakov 0.0
+2. pmnox 0.0
+2. pashka 0.0
+2. radeye 0.0
+2. HiltonLange 0.0
+2. wata 0.0
+2. krijgertje 0.0
+
+
+Tilps_1026487_1_62259_Q2cs.txt C:\Users\rainb\Stylometry\Unknown\Tilps_1026487_1_62259_Q2cs.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA J48 Decision Tree 
+1. radeye 1.0
+2. Eryx 0.0
+2. LinesPrower 0.0
+2. dzhulgakov 0.0
+2. pmnox 0.0
+2. pashka 0.0
+2. bmerry 0.0
+2. HiltonLange 0.0
+2. wata 0.0
+2. krijgertje 0.0
+
+
+crazyFrog_1026487_1_62838_bcpp.txt C:\Users\rainb\Stylometry\Unknown\crazyFrog_1026487_1_62838_bcpp.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA J48 Decision Tree 
+1. bmerry 1.0
+2. Eryx 0.0
+2. LinesPrower 0.0
+2. dzhulgakov 0.0
+2. pmnox 0.0
+2. pashka 0.0
+2. radeye 0.0
+2. HiltonLange 0.0
+2. wata 0.0
+2. krijgertje 0.0
+
+
+flyfox141_1026487_1_62886_2cpp.txt C:\Users\rainb\Stylometry\Unknown\flyfox141_1026487_1_62886_2cpp.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA J48 Decision Tree 
+1. radeye 0.6666666666666666
+2. HiltonLange 0.3333333333333333
+3. Eryx 0.0
+3. LinesPrower 0.0
+3. dzhulgakov 0.0
+3. pmnox 0.0
+3. pashka 0.0
+3. bmerry 0.0
+3. wata 0.0
+3. krijgertje 0.0
+
+
+tolk_1026487_1_62915_Magickajava.txt C:\Users\rainb\Stylometry\Unknown\tolk_1026487_1_62915_Magickajava.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA J48 Decision Tree 
+1. pmnox 0.5
+1. pashka 0.5
+3. Eryx 0.0
+3. LinesPrower 0.0
+3. dzhulgakov 0.0
+3. bmerry 0.0
+3. radeye 0.0
+3. HiltonLange 0.0
+3. wata 0.0
+3. krijgertje 0.0
+
+
+unknown1.txt C:\Users\rainb\Stylometry\Unknown\unknown1.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA J48 Decision Tree 
+1. bmerry 1.0
+2. Eryx 0.0
+2. LinesPrower 0.0
+2. dzhulgakov 0.0
+2. pmnox 0.0
+2. pashka 0.0
+2. radeye 0.0
+2. HiltonLange 0.0
+2. wata 0.0
+2. krijgertje 0.0
+
+
+unknown10.txt C:\Users\rainb\Stylometry\Unknown\unknown10.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA J48 Decision Tree 
+1. wata 1.0
+2. Eryx 0.0
+2. LinesPrower 0.0
+2. dzhulgakov 0.0
+2. pmnox 0.0
+2. pashka 0.0
+2. bmerry 0.0
+2. radeye 0.0
+2. HiltonLange 0.0
+2. krijgertje 0.0
+
+
+unknown2.txt C:\Users\rainb\Stylometry\Unknown\unknown2.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA J48 Decision Tree 
+1. dzhulgakov 1.0
+2. Eryx 0.0
+2. LinesPrower 0.0
+2. pmnox 0.0
+2. pashka 0.0
+2. bmerry 0.0
+2. radeye 0.0
+2. HiltonLange 0.0
+2. wata 0.0
+2. krijgertje 0.0
+
+
+unknown3.txt C:\Users\rainb\Stylometry\Unknown\unknown3.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA J48 Decision Tree 
+1. Eryx 1.0
+2. LinesPrower 0.0
+2. dzhulgakov 0.0
+2. pmnox 0.0
+2. pashka 0.0
+2. bmerry 0.0
+2. radeye 0.0
+2. HiltonLange 0.0
+2. wata 0.0
+2. krijgertje 0.0
+
+
+unknown4.txt C:\Users\rainb\Stylometry\Unknown\unknown4.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA J48 Decision Tree 
+1. radeye 1.0
+2. Eryx 0.0
+2. LinesPrower 0.0
+2. dzhulgakov 0.0
+2. pmnox 0.0
+2. pashka 0.0
+2. bmerry 0.0
+2. HiltonLange 0.0
+2. wata 0.0
+2. krijgertje 0.0
+
+
+unknown5.txt C:\Users\rainb\Stylometry\Unknown\unknown5.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA J48 Decision Tree 
+1. LinesPrower 1.0
+2. Eryx 0.0
+2. dzhulgakov 0.0
+2. pmnox 0.0
+2. pashka 0.0
+2. bmerry 0.0
+2. radeye 0.0
+2. HiltonLange 0.0
+2. wata 0.0
+2. krijgertje 0.0
+
+
+unknown6.txt C:\Users\rainb\Stylometry\Unknown\unknown6.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA J48 Decision Tree 
+1. dzhulgakov 1.0
+2. Eryx 0.0
+2. LinesPrower 0.0
+2. pmnox 0.0
+2. pashka 0.0
+2. bmerry 0.0
+2. radeye 0.0
+2. HiltonLange 0.0
+2. wata 0.0
+2. krijgertje 0.0
+
+
+unknown7.txt C:\Users\rainb\Stylometry\Unknown\unknown7.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA J48 Decision Tree 
+1. radeye 1.0
+2. Eryx 0.0
+2. LinesPrower 0.0
+2. dzhulgakov 0.0
+2. pmnox 0.0
+2. pashka 0.0
+2. bmerry 0.0
+2. HiltonLange 0.0
+2. wata 0.0
+2. krijgertje 0.0
+
+
+unknown8.txt C:\Users\rainb\Stylometry\Unknown\unknown8.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA J48 Decision Tree 
+1. pmnox 1.0
+2. Eryx 0.0
+2. LinesPrower 0.0
+2. dzhulgakov 0.0
+2. pashka 0.0
+2. bmerry 0.0
+2. radeye 0.0
+2. HiltonLange 0.0
+2. wata 0.0
+2. krijgertje 0.0
+
+
+unknown9.txt C:\Users\rainb\Stylometry\Unknown\unknown9.txt
+Canonicizers: 
+        none
+EventDrivers: 
+        Punctuation 
+Analysis: 
+        WEKA J48 Decision Tree 
+1. radeye 1.0
+2. Eryx 0.0
+2. LinesPrower 0.0
+2. dzhulgakov 0.0
+2. pmnox 0.0
+2. pashka 0.0
+2. bmerry 0.0
+2. HiltonLange 0.0
+2. wata 0.0
+2. krijgertje 0.0
+
+

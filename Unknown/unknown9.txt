@@ -1,0 +1,40 @@
+$tc = <> ;
+ chomp $tc ;
+ for ($t=1; $t<=$tc; $t++) {
+     $lin = <> ;
+     chomp $lin ;
+     @f = split " ", $lin ;
+     $c = shift @f ;
+     %c = () ;
+     for ($i=0; $i<$c; $i++) {
+         my $trip = shift @f ;
+         my ($x, $y, $z) = split '', $trip ;
+         $c{$x.$y} = $z ;
+         $c{$y.$x} = $z ;
+     }
+     $d = shift @f ;
+     %d = () ;
+     for ($i=0; $i<$d; $i++) {
+         my $pair = shift @f ;
+         my ($x, $y) = split '', $pair ;
+         $d{$x.$y}++ ;
+         $d{$y.$x}++ ;
+     }
+     shift @f ;
+     my @seq = split '', $f[0] ;
+     my @r = () ;
+     for $c (@seq) {
+         push @r, $c ;
+         while (@r > 1 && $c{$r[-1].$r[-2]}) {
+             my $r = $c{$r[-1].$r[-2]} ;
+             pop @r ;
+             pop @r ;
+             push @r, $r ;
+         }
+         my $t = $r[-1] ;
+         for ($i=0; $i+1<@r; $i++) {
+             @r = () if $d{$t.$r[$i]} ;
+         }
+     }
+     print "Case #$t: [", join(', ',@r), "]\n" ;
+ }
