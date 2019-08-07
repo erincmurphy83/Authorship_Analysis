@@ -1,0 +1,51 @@
+{$apptype console,q+,r+,o-}
+ uses
+   math, sysutils;
+ 
+ var
+   tt, n, t, tn, na, nb, i, j, m, jj, q: integer;
+   z: array[1..10000] of boolean;
+   s: string;
+   res: array[1..2] of integer;
+   a, b, c, ct, rt: array[1..10000] of integer;
+ 
+ begin
+   readln(n);
+   for tn := 1 to n do begin
+     readln(t);
+     readln(na, nb);
+     for i := 1 to na + nb do begin
+       readln(s);
+       a[i] := strtoint(copy(s, 1, 2)) * 60 + strtoint(copy(s, 4, 2));
+       b[i] := strtoint(copy(s, 7, 2)) * 60 + strtoint(copy(s, 10, 2));
+       if (i <= na) then c[i] := 1 else c[i] := 2;
+     end;
+     tt := 0;
+     res[1] := 0;
+     res[2] := 0;
+     for i := 1 to (na + nb) do z[i] := false;
+     for i := 1 to (na + nb) do begin
+       m := 1000000;
+       for j := 1 to (na + nb) do if (not z[j]) and (a[j] < m) then begin
+         m := a[j];
+         jj := j;        
+       end;
+       z[jj] := true;
+       q := 0;
+       for j := 1 to tt do begin
+         if (c[jj] = ct[j]) and (rt[j] <= a[jj]) then begin
+           q := j;
+           break;          
+         end;
+       end;
+       if (q = 0) then begin
+         inc(tt);
+         q := tt;
+         inc(res[c[jj]]);
+       end;
+       ct[q] := (3 - c[jj]);
+       rt[q] := b[jj] + t;
+     end;
+     writeln('Case #', tn, ': ', res[1], ' ', res[2]);
+   end;
+ end.

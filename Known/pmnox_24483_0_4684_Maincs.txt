@@ -1,0 +1,26 @@
+// Main.cs created with MonoDevelop
+ // User: user at 10:06 PM 7/25/2008
+ //
+ // To change standard headers go to Edit->Preferences->Coding->Standard Headers
+ //
+ using System;
+ 
+ namespace mono2
+ {
+ 	class MainClass
+ 	{
+ 		public static void Main(string[] args)
+ 		{
+ 			Console.WriteLine("Hello World!");
+ 			decimal x = 1;
+ 			decimal sqrt = 5;
+ 			for (int i = 0; i < 1000; i++) {
+ 				sqrt = (sqrt + 5 / sqrt) / 2;
+ 			}
+ 			for (int i = 1; i <= 30; i++) {
+ 				x = x * (3 + sqrt);
+ 				Console.WriteLine("" + Math.Floor(x % 1000));
+ 			}
+ 		}
+ 	}
+ }

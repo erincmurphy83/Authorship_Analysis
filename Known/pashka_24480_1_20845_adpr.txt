@@ -1,0 +1,29 @@
+{$apptype console,q+,r+,o-}
+ uses
+   math, sysutils;
+ var
+   n, tn, s, i, q, j, k, m: integer;
+   w: array[1..100] of string;
+   r: string;
+   d: array[1..100] of integer;
+ begin
+   readln(n);
+   for tn := 1 to n do begin
+     readln(s);
+     for i := 1 to s do readln(w[i]);
+     readln(q);
+     for i := 1 to s do d[i] := 0;
+     for i := 1 to q do begin
+       readln(r);
+       j := 1;
+       while (w[j] <> r) do inc(j);
+       for k := 1 to s do if (k <> j) then begin
+         d[k] := min(d[k], d[j] + 1);
+       end;      
+       d[j] := 1000000000;
+     end;    
+     m := 1000000000;
+     for i := 1 to s do m := min(m, d[i]);
+     writeln('Case #', tn, ': ', m);
+   end;
+ end.

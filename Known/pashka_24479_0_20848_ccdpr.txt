@@ -1,0 +1,68 @@
+{$apptype console,q+,r+,o-}
+ uses
+   math, sysutils;
+ 
+ function chk(x, y: double): boolean;
+ begin
+   chk := x * x + y * y <= 1;
+ end;
+ 
+ function get(l, r, b, t: double): double;
+ var
+   aa, bb, cc, dd: boolean;
+   q, w: double;
+ begin
+   aa := chk(l, t);
+   bb := chk(l, b);
+   cc := chk(r, t);
+   dd := chk(r, b);
+   if aa and bb and cc and dd then begin
+     get := (r - l) * (t - b);
+   end else
+     if not aa and not bb and not cc and not dd then begin
+       get := 0;
+     end else begin
+       if (r - l) * (t - b) < 1e-10 then begin
+         get := (r - l) * (t - b) / 2;
+       end else begin
+         q := (l + r) / 2;
+         w := (t + b) / 2;
+         get := get(l, q, b, w) + get(l, q, w, t) + get(q, r, b, w) + get(q, r, w, t);                  
+       end;
+     end;
+ end;
+ 
+ var
+   n, tn, i, j, k: integer;
+   g, t, r, rr, f, res, c, s: double;
+ 
+ begin
+   readln(n);
+   for tn := 1 to n do begin
+     readln(f, rr, t, r, g);
+     g := g + 2 * r;
+     t := t + f;
+     r := r + f;
+     rr := rr - t;
+     
+     g := g / rr;
+     r := r / rr;
+     t := t / rr;
+     rr := 1;
+ 
+     if (g - 2 * r < 1e-10) then begin
+       res := 1;
+     end else begin
+       k := 1;
+       while (g * k <= rr) do inc(k);
+       c := 0;
+       for i := 1 to k do
+         for j := 1 to k do begin
+           c := c + get((i - 1) * g + r, i * g - r, (j - 1) * g + r, j * g - r);
+         end;
+       s := (pi * (rr + t) * (rr + t));
+       res := (s - 4 * c) / s;
+     end;
+     writeln('Case #', tn, ': ', res:0:6);
+   end;
+ end.       
