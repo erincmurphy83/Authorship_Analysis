@@ -1,0 +1,62 @@
+import java.io.* ;
+ import java.util.* ;
+ public class p3 {
+     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in)) ;
+     public static int getInt() throws Exception {
+         return Integer.parseInt(br.readLine()) ;
+     }
+     public static int[] getInts() throws Exception {
+         String s[] = br.readLine().split(" ") ;
+         int[] r = new int[s.length] ;
+         for (int i=0; i<r.length; i++)
+             r[i] = Integer.parseInt(s[i]) ;
+         return r ;
+     }
+     public static String docase() throws Exception {
+         int[] f = getInts() ;
+         int M = f[0] ;
+         int N = f[1] ;
+         char[][] b = new char[M+1][] ;
+         String s = "" ;
+         while (s.length() < N)
+             s = s + "." ;
+         b[0] = s.toCharArray() ;
+         for (int i=0; i<M; i++)
+             b[i+1] = br.readLine().toCharArray() ;
+         int mask = (1 << N) - 1 ;
+         int st[][] = new int[M+1][mask + 1] ;
+         for (int i=1; i<=M; i++) {
+             int off = 0 ;
+             for (int j=0; j<N; j++)
+                 if (b[i][j] == 'x')
+                     off |= 1 << j ;
+             for (int bm1=0; bm1<=mask; bm1++) {
+                 int r = 0 ;
+                 if ((bm1 & off) != 0)
+                     continue ;
+                 if ((bm1 & (bm1 << 1)) != 0)
+                     continue ;
+                 int bc = 0 ;
+                 for (int j=0; j<N; j++)
+                     if (((bm1 >> j) & 1) != 0)
+                         bc++ ;
+                 for (int bm2=0; bm2<=mask; bm2++) {
+                     if ((bm1 & ((bm2 >> 1) | (bm2 << 1))) == 0)
+                         r = Math.max(r, bc+st[i-1][bm2]) ;
+                 }
+                 st[i][bm1] = r ;
+             }
+         }
+         int r = 0 ;
+         for (int i=0; i<mask; i++)
+             r = Math.max(r, st[M][i]) ;
+         return "" + r ;
+     }
+     public static void main(String[] args) throws Exception {
+         int lim = getInt() ;
+         for (int c=1; c<=lim; c++) {
+             String r = docase() ;
+             System.out.println("Case #" + c + ": " + r) ;
+         }
+     }
+ }

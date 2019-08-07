@@ -1,0 +1,107 @@
+import static java.lang.Math.*;
+ import static java.math.BigInteger.*;
+ import static java.util.Arrays.*;
+ import static java.util.Collections.*;
+ import java.math.*;
+ import java.util.*;
+ 
+ public class D {
+ 	public static void main(String[] args) {
+ 		new D().run();
+ 	}
+ 	long M = 10007;
+ 	BigInteger bM = valueOf(M);
+ 	static final int[] di = {1, 2}, dj = {2, 1};
+ 	boolean[] isPrime;
+ 	void run() {
+ 		isPrime = eratos((int)M);
+ 		Scanner sc = new Scanner(System.in);
+ 		int on = sc.nextInt();
+ 		for (int o = 1; o <= on; o++) {
+ 			//debug(o);
+ 			System.out.printf("Case #%d: ", o);
+ 			int h = sc.nextInt() - 1, w = sc.nextInt() - 1, r = sc.nextInt();
+ 			Entry[] es = new Entry[r];
+ 			for (int i = 0; i < r; i++) {
+ 				es[i] = new Entry(sc.nextLong() - 1, sc.nextLong() - 1);
+ 			}
+ 			sort(es);
+ 			long[] dp = new long[1 << r];
+ 			for (int i = 0; i < 1 << r; i++) {
+ 				long tmp = 1;
+ 				Entry last = new Entry(0, 0);
+ 				for (int j = 0; j < r; j++) if ((i & (1 << j)) > 0) {
+ 					tmp = mod(tmp * f(es[j].x - last.x, es[j].y - last.y));
+ 					last = es[j];
+ 				}
+ 				dp[i] = mod(tmp * f(h - last.x, w - last.y));
+ 			}
+ 			long res = dp[0];
+ 			for (int i = 1; i <= r; i++) {
+ 				for (int comb = (1 << i) - 1; comb < 1 << r;) {
+ 					res = mod(res + dp[comb] * (i % 2 == 0 ? 1 : -1));
+ 					int x = comb & -comb, y = comb + x;
+ 					comb = ((comb & ~y) / x >>> 1) | y;
+ 				}
+ 			}
+ 			System.out.println(res);
+ 		}
+ 	}
+ 	class Entry implements Comparable<Entry> {
+ 		long x, y;
+ 		Entry(long x, long y) {
+ 			this.x = x;
+ 			this.y = y;
+ 		}
+ 		public int compareTo(Entry o) {
+ 			return Long.signum((x + y) - (o.x + o.y));
+ 		}
+ 	}
+ 	long f(long h, long w) {
+ 		if (h < 0 || w < 0) return 0;
+ 		if ((h + w) % 3 != 0) return 0;
+ 		long n = (h + w) / 3;
+ 		long r = n / 2 - abs(h - w) / 2;
+ 		if (r < 0) return 0;
+ 		return mod(fact(n) * modInv(fact(n - r)) * modInv(fact(r)));
+ 	}
+ 	long mod(long a) {
+ 		return (a % M + M) % M;
+ 	}
+ 	long modInv(long a) {
+ 		return BigInteger.valueOf(a).modInverse(bM).longValue();
+ 	}
+ 	long fact(long n) {
+ 		long res = 1;
+ 		for (int i = 2; i < M; i++) if (isPrime[i]) {
+ 			long num = 0;
+ 			for (long m = n; m > 0; m /= i) num += m / i;
+ 			res = mod(res * pow(i, num));
+ 		}
+ 		return res;
+ 	}
+ 	long pow(long a, long b) {
+ 		long res = 1;
+ 		while (b > 0) {
+ 			if ((b & 1) == 1) res = (res * a) % M;
+ 			a = (a * a) % M;
+ 			b >>>= 1;
+ 		}
+ 		return res;
+ 	}
+ 	boolean[] eratos(int n) {
+ 		boolean[] isPrime = new boolean[n];
+ 		for (int i = 3; i < n; i += 2) isPrime[i] = true;
+ 		if (n < 3) return isPrime;
+ 		isPrime[2] = true;
+ 		for (int i = 3; i * i < n; i += 2) if (isPrime[i]) {
+ 			for (int j = i * i, k = i * 2; j < n; j += k) {
+ 				isPrime[j] = false;
+ 			}
+ 		}
+ 		return isPrime;
+ 	}
+ 	void debug(Object...os) {
+ 		System.err.println(deepToString(os));
+ 	}
+ }

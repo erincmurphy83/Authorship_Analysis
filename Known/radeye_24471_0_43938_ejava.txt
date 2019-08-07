@@ -1,0 +1,79 @@
+import java.io.* ;
+ import java.util.* ;
+ public class e {
+     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in)) ;
+     public static int getInt() throws Exception {
+         return Integer.parseInt(br.readLine()) ;
+     }
+     public static int[] getInts() throws Exception {
+         String s[] = br.readLine().split(" ") ;
+         int[] r = new int[s.length] ;
+         for (int i=0; i<r.length; i++)
+             r[i] = Integer.parseInt(s[i]) ;
+         return r ;
+     }
+     static final int F = 10000 ;
+     static int map(int x, int y) {
+ 	return 61 + x + 60 * y ;
+     }
+     static int is(char[] b, int at) {
+ 	char c = b[at] ;
+ 	if (c == 'Y' || c == 'C')
+ 	    return 1 ;
+ 	return 0 ;
+     }
+     public static int docase() throws Exception {
+ 	int[] hw = getInts() ;
+ 	int h = hw[0] ;
+ 	int w = hw[1] ;
+ 	char[] b = new char[3600] ;
+ 	for (int i=0; i<h; i++) {
+ 	    String s = br.readLine() ;
+ 	    for (int j=0; j<w; j++) {
+ 		char c = s.charAt(j) ;
+ 		if (c == '#') {
+ 		    b[map(i, j)] = 'C' ;
+ 		} else if (c == '?') {
+ 		    b[map(i, j)] = 'N' ;
+ 		}
+ 	    }
+ 	}
+ 	int loopcount = 0 ;
+ 	while (true) {
+ 	    boolean changed = false ;
+ 	    for (int at=0; at<3600; at++) {
+ 		if (b[at] == 'N' || b[at] == 'Y') {
+ 		    int nn = is(b,at-60)+is(b,at-1)+is(b,at+1)+is(b,at+60) ;
+ 		    if (nn > 2 && b[at] == 'Y') {
+ 			b[at] = 'N' ;
+ 			changed = true ;
+ 		    } else if (nn < 2 && b[at] == 'N') {
+ 			b[at] = 'Y' ;
+ 			changed = true ;
+ 		    } else if (nn == 2 && Math.random() < 0.5) {
+ 			b[at] = (char)('Y'+'N'-b[at]) ;
+ 		    }
+ 		}
+ 	    }
+ 	    if (loopcount > 10000 && !changed)
+ 		break ;
+ 	    loopcount++ ;
+ 	}
+ 	int r = 0 ;
+ 	for (int at=0; at<3600; at++) {
+ 	    if (b[at] == 'Y' || b[at] == 'C') {
+ 		int nn = is(b,at-60)+is(b,at-1)+is(b,at+1)+is(b,at+60) ;
+ 		r += 4 - nn ;
+ 	    }
+ 	}
+ 	return r ;
+     }
+     public static void main(String[] args) throws Exception {
+         int lim = getInt() ;
+         for (int c=1; c<=lim; c++) {
+             int r = docase() ;
+             System.out.println("Case #" + c + ": " + r) ;
+         }
+     }
+    
+ }

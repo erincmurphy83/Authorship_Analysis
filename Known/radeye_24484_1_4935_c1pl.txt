@@ -1,0 +1,12 @@
+for $c (1..<>) {
+     scalar <> ;
+     @a = split " ", <> ;
+     @b = split " ", <> ;
+     @a = sort { $a <=> $b } @a ;
+     @b = sort { $b <=> $a } @b ;
+     $r = 0 ;
+     for ($i=0; $i<@a; $i++) {
+         $r += $a[$i] * $b[$i] ;
+     }
+     print "Case #$c: $r\n" ;
+ }

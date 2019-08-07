@@ -1,0 +1,63 @@
+my @pref ;
+ my @m ;
+ my %ismalted ;
+ my $best = 0 ;
+ sub recur {
+     my ($at, $lim, $cnt) = @_ ;
+     return if $cnt >= $best ;
+     if ($at == $lim) {
+         my $ok = 1 ;
+         my $i ;
+         my $j ;
+         for ($i=0; $i<$lim; $i++) {
+             my $tc = 0 ;
+             for ($j=0; $j<@{$pref[$i]}; $j += 2) {
+                 if ($ismalted{$pref[$i][$j]} == $pref[$i][$j+1]) {
+                     $tc = 1 ;
+                     last ;
+                 }
+             }
+             if (!$tc) {
+                 $ok = 0 ;
+                 last ;
+             }
+         }
+         if ($ok) {
+             $best = $cnt ;
+             %best = %ismalted ;
+         }
+     } else {
+         recur($at+1, $lim, $cnt) ;
+         if ($m[$at] >= 0 && !$ismalted{$m[$at]}) {
+             $ismalted{$m[$at]} = 1 ;
+             recur($at+1, $lim, $cnt+1) ;
+             $ismalted{$m[$at]} = 0 ;
+         }
+     }
+ }
+ for $c (1..<>) {
+     @pref = () ;
+     @m = () ;
+     my $n = <> ;
+     my $m = <> ;
+     for $cust (0..$m-1) {
+         @f = split " ", <> ;
+         shift @f ;
+         push @pref, [@f] ;
+         $malt = -1 ;
+         for ($i=0; $i<@f; $i+=2) {
+             if ($f[$i+1]) {
+                 $malt = $f[$i] ;
+             }
+         }
+         push @m, $malt ;
+     }
+     $best = 10000000 ;
+     recur(0, $m, $cnt) ;
+     if ($best <= $n) {
+         @r = map { 0+$best{$_} } 1..$n ;
+         print "Case #$c: @r\n" ;
+     } else {
+         print "Case #$c: IMPOSSIBLE\n" ;
+     }
+ }

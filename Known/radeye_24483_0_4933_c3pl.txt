@@ -1,0 +1,39 @@
+sub mul {
+     my $a = shift ;
+     my $b = shift ;
+     my @a = @{$a} ;
+     my @b = @{$b} ;
+     my @c = ($a[0]*$b[0] + $a[1]*$b[2],
+              $a[0]*$b[1] + $a[1]*$b[3],
+              $a[2]*$b[0] + $a[3]*$b[2],
+              $a[2]*$b[1] + $a[3]*$b[3]) ;
+     @c = map { $_ % 1000 } @c ;
+     return @c ;
+ }
+ sub f {
+     my $n = shift ;
+     return 2 if $n == 0 ;
+     return 6 if $n == 1 ;
+     return 28 if $n == 2 ;
+     $n -= 2 ;
+     my @mat = (0, 1, 996, 6) ;
+     my @smat = @mat ;
+     while ($n > 0) {
+         if ($n & 1) {
+             @mat = mul([@mat], [@smat]) ;
+         }
+         @smat = mul([@smat], [@smat]) ;
+         $n >>= 1 ;
+     }
+     return ($mat[0] * 6 + $mat[1] * 28) % 1000 ;
+ }
+ sub ff {
+    my $r = shift ;
+    $r = ($r + 999) % 1000 ;
+    $r = "0" . $r while length($r) < 3 ;
+    return $r ;
+ }
+ for $c (1..<>) {
+     $n = <> ;
+     print "Case #$c: ", ff(f($n)), "\n" ;
+ }

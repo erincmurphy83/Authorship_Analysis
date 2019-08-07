@@ -1,0 +1,155 @@
+import java.io.* ;
+ import java.math.BigInteger ;
+ import java.util.* ;
+ public class p4 {
+     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in)) ;
+     public static int getInt() throws Exception {
+         return Integer.parseInt(br.readLine()) ;
+     }
+     public static int[] getInts() throws Exception {
+         String s[] = br.readLine().split(" ") ;
+         int[] r = new int[s.length] ;
+         for (int i=0; i<r.length; i++)
+             r[i] = Integer.parseInt(s[i]) ;
+         return r ;
+     }
+     public static String solve(int N, int M, int A, boolean flip)
+         throws Exception {
+         if (N < M)
+             return solve(M, N, A, true) ;
+         int y1 = M ;
+         int x1 = (A + M - 1) / M ;
+         int left = x1 * y1 - A ;
+         int y2 = 1 ;
+         int x2 = left ;
+         if (y1 < 0 || y1 > M || y2 < 0 || y2 > M || x1 < 0 || x1 > N ||
+             x2 < 0 || x2 > N || (x1*y1-x2*y2 != A))
+             throw new Exception("BAD") ;
+         if (flip)
+             return "0 0 " + y1 + " " + x2 + " " + y2 + " " + x1 ;
+         else
+             return "0 0 " + x2 + " " + y1 + " " + x1 + " " + y2 ;
+     }
+     final static int M = 10007 ;
+     static int inv[] = new int[M] ;
+     static int binom(int x, int y) {
+         y = (y + x) / 2 ;
+         if (y < 0 || y > x)
+             return 0 ;
+         int r = 1 ;
+         if (x >= M) {
+             r = binom(x / M, y / M)  ;
+             x = x % M ;
+             y = y % M ;
+             if (y < 0 || y > x)
+                 return 0 ;
+         }
+         if (y + y > x)
+             y = x - y ;
+         for (int i=0; i<y; i++) {
+             r = (r * (x - i)) % M ;
+             r = (r * inv[1+i]) % M ;
+         }
+         return r ;
+     }
+     public static int docase() throws Exception {
+         int[] f = getInts() ;
+         int H = f[0] ;
+         int W = f[1] ;
+         int R = f[2] ;
+         boolean okay2 = true ;
+         H-- ;
+         W-- ;
+         int xd = (H + W) ;
+         if (xd % 3 != 0)
+             okay2 = false ;
+         xd /= 3 ;
+         int yd = H - W ;
+         if (Math.abs(yd) > xd)
+             okay2 = false ;
+         if (((xd ^ yd) & 1) != 0)
+             okay2 = false ;
+         int wx[] = new int[12] ;
+         int wy[] = new int[12] ;
+         int ex = xd ;
+         int ey = yd ;
+         int[] rx = new int[10] ;
+         int[] ry = new int[10] ;
+         int nr = 0 ;
+         for (int i=0; i<R; i++) {
+             f = getInts() ;
+             f[0]-- ;
+             f[1]-- ;
+             xd = (f[0] + f[1]) ;
+             if (xd % 3 != 0)
+                 continue ;
+             xd /= 3 ;
+             yd = (f[0] - f[1]) ;
+             if (Math.abs(yd) > xd)
+                 continue ;
+             if (((xd ^ yd) & 1) != 0)
+                 continue ;
+             rx[nr] = xd ;
+             ry[nr] = yd ;
+             nr++ ;
+         }
+         if (!okay2)
+             return 0 ;
+         for (int i=0; i<nr; i++)
+             for (int j=0; j<i; j++)
+                 if (rx[j] > rx[i]) {
+                     int t = rx[j] ;
+                     rx[j] = rx[i] ;
+                     rx[i] = t ;
+                     t = ry[j] ;
+                     ry[j] = ry[i] ;
+                     ry[i] = t ;
+                 }
+         for (int i=0; i+1<nr; i++)
+             if (rx[i] > rx[i+1])
+                 throw new Exception("Unsorted") ;
+         int r = 0 ;
+         for (int bm=0; bm<(1<<nr); bm++) {
+             wx[0] = 0 ;
+             wy[0] = 0 ;
+             int bc = 0 ;
+             boolean okay = true ;
+             for (int i=0; i<nr; i++) {
+                 if (((bm >> i) & 1) != 0) {
+                     bc++ ;
+                     wx[bc] = rx[i] ;
+                     wy[bc] = ry[i] ;
+                 }
+             }
+             bc++ ;
+             wx[bc] = ex ;
+             wy[bc] = ey ;
+             for (int i=0; i<bc; i++) {
+                 if (wx[i+1] < wx[i] ||
+                     Math.abs(wy[i+1]-wy[i]) > wx[i+1] - wx[i]) {
+                     okay = false ;
+                     break ;
+                 }
+             }
+             if (!okay)
+                 continue ;
+             int fr = M-1 ;
+             for (int i=0; i<bc; i++) {
+                 fr = -1 * fr * binom(wx[i+1]-wx[i], wy[i+1]-wy[i]) ;
+                 fr = (((fr % M) + M) % M) ;
+             }
+             r = (r + fr) % M ;
+         }
+         return r ;
+     }
+     public static void main(String[] args) throws Exception {
+         BigInteger MM = new BigInteger("" + M) ;
+         for (int i=1; i<M; i++)
+             inv[i] = new BigInteger(""+i).modInverse(MM).intValue() ;
+         int lim = getInt() ;
+         for (int c=1; c<=lim; c++) {
+             int r = docase() ;
+             System.out.println("Case #" + c + ": " + r) ;
+         }
+     }
+ }

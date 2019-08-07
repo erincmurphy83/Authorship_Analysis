@@ -1,0 +1,119 @@
+import java.io.* ;
+ import java.util.* ;
+ public class p1 {
+     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in)) ;
+     public static int getInt() throws Exception {
+         return Integer.parseInt(br.readLine()) ;
+     }
+     public static int[] getInts() throws Exception {
+         String s[] = br.readLine().split(" ") ;
+         int[] r = new int[s.length] ;
+         for (int i=0; i<r.length; i++)
+             r[i] = Integer.parseInt(s[i]) ;
+         return r ;
+     }
+     static int minx[], miny[], maxx[], maxy[] ;
+     final static int MID = 5000 ;
+     final static int BIG = 10000 ;
+     public static void convex(int[] a, int lo, int hi, int mul) {
+         int lox = a[lo] * mul ;
+         int hix = a[lo] * mul ;
+         while (true) {
+             if (lo + 1 >= hi)
+                 return ;
+             if (mul * a[lo] < mul * a[hi]) {
+                 hi-- ;
+                 if (mul * a[hi] > hix)
+                     a[hi] = hix * mul ;
+                 else if (mul * a[hi] < hix)
+                     hix = a[hi] * mul ;
+             } else {
+                 lo++ ;
+                 if (mul * a[lo] > lox)
+                     a[lo] = lox * mul ;
+                 else if (mul * a[lo] < lox)
+                     lox = a[lo] * mul ;
+             }
+         }
+     }
+     public static int docase() throws Exception {
+         int L = getInt() ;
+         int area = 0 ;
+         int todo = L ;
+         int x=MID, y=MID, dx=0, dy=1 ;
+         minx = new int[BIG] ;
+         miny = new int[BIG] ;
+         maxx = new int[BIG] ;
+         maxy = new int[BIG] ;
+         for (int i=0; i<BIG; i++) {
+             minx[i] = miny[i] = BIG ;
+             maxx[i] = maxy[i] = 0 ;
+         }
+         while (true) {
+             String f[] = br.readLine().split(" ") ;
+             for (int i=0; i<f.length; i+=2) {
+                 int cnt = Integer.parseInt(f[i+1]) ;
+                 String s = f[i] ;
+                 for (int j=0; j<cnt; j++)
+                     for (int k=0; k<s.length(); k++) {
+                         char c = s.charAt(k) ;
+                         if (c == 'R') {
+                             int t = dx ;
+                             dx = dy ;
+                             dy = -t ;
+                         } else if (c == 'L') {
+                             int t = dx ;
+                             dx = -dy ;
+                             dy = t ;
+                         } else if (c == 'F') {
+                             area += y * dx ;
+                             x += dx ;
+                             y += dy ;
+                             minx[y] = Math.min(x, minx[y]) ;
+                             maxx[y] = Math.max(x, maxx[y]) ;
+                             miny[x] = Math.min(y, miny[x]) ;
+                             maxy[x] = Math.max(y, maxy[x]) ;
+                         } else {
+                             throw new Exception("Bad char") ;
+                         }
+                     }
+                 todo-- ;
+             }
+             if (todo <= 0) {
+                 if (todo < 0)
+                     throw new Exception("Underrun") ;
+                 break ;
+             }
+         }
+         if (x != MID || y != MID)
+             throw new Exception("Not at origin again") ;
+         convex(minx, 0, BIG-1, 1) ;
+         convex(miny, 0, BIG-1, 1) ;
+         convex(maxx, 0, BIG-1, -1) ;
+         convex(maxy, 0, BIG-1, -1) ;
+         int narea1 = 0 ;
+         int narea2 = 0 ;
+         for (int i=0; i+1<BIG; i++) {
+             int x1 = Math.max(minx[i], minx[i+1]) ;
+             int x2 = Math.min(maxx[i], maxx[i+1]) ;
+             int y1 = Math.max(miny[i], miny[i+1]) ;
+             int y2 = Math.min(maxy[i], maxy[i+1]) ;
+             if (x2 > x1)
+                 narea1 += x2 - x1 ;
+             if (y2 > y1)
+                 narea2 += y2 - y1 ;
+         }
+         if (narea1 != narea2)
+             throw new Exception("Mismatch") ;
+         if (narea1 < Math.abs(area))
+             throw new Exception("Bad 2") ;
+         return narea1 - Math.abs(area) ;
+     }
+     public static void main(String[] args) throws Exception {
+         int lim = getInt() ;
+         for (int c=1; c<=lim; c++) {
+             int r = docase() ;
+             System.out.println("Case #" + c + ": " + r) ;
+         }
+     }
+ }

@@ -1,0 +1,54 @@
+my $pi = 3.14159265358979 ;
+ sub integrate {
+     my ($r, $x) = @_ ;
+     my $y = sqrt($r*$r-$x*$x) ;
+     return 0.5 * (atan2($x, $y) * $r * $r + $x * $y) ;
+     return $r ;
+ }
+ sub f {
+     my ($f, $R, $t, $r, $g) = @_ ;
+     $g -= 2 * $f ;
+     $r += $f ;
+     $off = $g + 2 * $r ;
+     $ri = $R - $t - $f ;
+     return 1 if $g <= 0 ;
+     return 1 if $ri <= 0 ;
+     $ta = $pi * $R * $R / 4 ;
+     $s = 0 ;
+     for ($i=0; ; $i++) {
+        $x1 = $i * $off + $r ;
+        $x2 = $x1 + $g ;
+        return 1 - $s / $ta if $x1 >= $ri ;
+        $y1 = sqrt($ri*$ri-$x1*$x1) ;
+        if ($x2 >= $ri) {
+ 	   $y2 = 0 ;
+        } else {
+ 	   $y2 = sqrt($ri*$ri-$x2*$x2) ;
+        }
+        $cnt = int($y2 / $off) ;
+        $s += $cnt * $g * $g ;
+        for ($j=$cnt; ; $j++) {
+ 	   $ybot = $j * $off + $r ;
+ 	   $ytop = $ybot + $g ;
+ 	   last if $ybot*$ybot+$x1*$x1 >= $ri*$ri ;
+ 	   if ($y1 > $ytop) {
+ 	       $x11 = sqrt($ri*$ri-$ytop*$ytop) ;
+ 	   } else {
+ 	       $x11 = $x1 ;
+ 	   }
+ 	   if ($y2 > $ybot) {
+ 	       $x22 = $x2 ;
+ 	   } else {
+ 	       $x22 = sqrt($ri*$ri-$ybot*$ybot) ;
+ 	   }
+ 	   $s += $g * ($x11-$x1) ;
+ 	   my $v1 = integrate($ri, $x22) ;
+ 	   my $v2 = integrate($ri, $x11) ;
+ 	   my $cc = ($x22-$x11)*$ybot ;
+ 	   $s += integrate($ri, $x22)-integrate($ri, $x11)-($x22-$x11)*$ybot ;
+        }
+     }
+ }
+ for $case (1..<>) {
+    print "Case #$case: ", f(split " ", <>), "\n" ;
+ }

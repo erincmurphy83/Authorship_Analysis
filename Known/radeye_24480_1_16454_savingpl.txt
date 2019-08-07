@@ -1,0 +1,16 @@
+for $case (1..<>) {
+    $engines = <> ;
+    <> for (1..$engines) ;
+    $dat = <> ;
+    %seen = () ;
+    $r = 0 ;
+    for (1..$dat) {
+       $eng = <> ;
+       $seen{$eng}++ ;
+       if ($engines == keys %seen) {
+          %seen = ($eng => 1) ;
+          $r++ ;
+       }
+    }
+    print "Case #$case: $r\n" ;
+ }

@@ -1,0 +1,32 @@
+for $case (1..<>) {
+    $turnaround = <> ;
+    ($ab, $ba) = split " ", <> ;
+    @a = () ;
+    @b = () ;
+    for (1..2) {
+       for (1..$ab) {
+ 	  @f = split /[: ]/, <> ;
+ 	  push @a, (1000 + $f[0] * 60 + $f[1]) . " 1" ;
+ 	  push @b, (1000 + $f[2] * 60 + $f[3] + $turnaround) . " 0" ;
+       }
+       @t = @a ; @a = @b ; @b = @t ; # swap
+       $ab = $ba ;
+    }
+    @r = () ;
+    for (1..2) {
+       @a = sort @a ;
+       my $hi = 0 ;
+       my $v = 0 ;
+       for (@a) {
+ 	 if ((split " ", $_)[1]) {
+ 	    $v++ ;
+ 	    $hi = $v if $v > $hi ;
+ 	 } else {
+ 	    $v-- ;
+ 	 }
+       }
+       push @r, $hi ;
+       @a = @b ;
+    }
+    print "Case #$case: @r\n" ;
+ }
